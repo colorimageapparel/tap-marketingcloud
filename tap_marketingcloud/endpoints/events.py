@@ -66,10 +66,7 @@ class EventDataAccessObject(DataAccessObject):
                 for event in stream:
                     event = self.filter_keys_and_parse(event)
 
-                    self.state = incorporate(self.state,
-                                             event_name,
-                                             'EventDate',
-                                             event.get('EventDate'))
+                    self.state = incorporate(self.state, event_name, 'EventDate', event.get('EventDate'))
 
                     if event.get('SubscriberKey') is None:
                         LOGGER.info("SubscriberKey is NULL so ignoring {} record with SendID: {} and EventDate: {}"
@@ -80,10 +77,7 @@ class EventDataAccessObject(DataAccessObject):
 
                     self.write_records_with_transform(event, catalog_copy, table)
 
-                self.state = incorporate(self.state,
-                                         event_name,
-                                         'EventDate',
-                                         start)
+                self.state = incorporate(self.state, event_name, 'EventDate', start)
 
                 save_state(self.state)
 
