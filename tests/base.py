@@ -23,7 +23,7 @@ class ExactTargetBase(unittest.TestCase):
         return "tap_tester_exacttarget_base"
 
     def tap_name(self):
-        return "tap-exacttarget"
+        return "tap-marketingcloud"
 
     def setUp(self):
         required_env = {

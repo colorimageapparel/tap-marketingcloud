@@ -1,6 +1,6 @@
 import unittest
-import tap_exacttarget
-from tap_exacttarget.pagination import increment_date
+import tap_marketingcloud
+from tap_marketingcloud.pagination import increment_date
 
 
 class TestPagination(unittest.TestCase):

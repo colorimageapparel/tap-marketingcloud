@@ -1,6 +1,6 @@
 from unittest import mock
 import unittest
-import tap_exacttarget.client as _client
+import tap_marketingcloud.client as _client
 import FuelSDK
 import time
 import requests
@@ -149,7 +149,7 @@ class TestErrorMessages(unittest.TestCase):
                 "Connection Error. Please check your 'client_id', 'client_secret' or 'tenant_subdomain'.")
 
     @mock.patch("requests.post")
-    @mock.patch("tap_exacttarget.client.LOGGER.info")
+    @mock.patch("tap_marketingcloud.client.LOGGER.info")
     def test_no_error_1(self, mocked_logger, mocked_post_request):
         json = {
             "accessToken": "access_token_123",
@@ -171,7 +171,7 @@ class TestErrorMessages(unittest.TestCase):
         mocked_logger.assert_called_with("Success.")
 
     @mock.patch("requests.post")
-    @mock.patch("tap_exacttarget.client.LOGGER.info")
+    @mock.patch("tap_marketingcloud.client.LOGGER.info")
     def test_no_error_2(self, mocked_logger, mocked_post_request):
         json = {
             "access_token": "access_token_123",

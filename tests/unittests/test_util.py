@@ -1,6 +1,6 @@
 import unittest
-import tap_exacttarget
-from tap_exacttarget.util import partition_all
+import tap_marketingcloud
+from tap_marketingcloud.util import partition_all
 
 
 class TestPartitionAll(unittest.TestCase):

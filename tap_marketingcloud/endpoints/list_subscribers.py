@@ -2,14 +2,14 @@ import FuelSDK
 import copy
 import singer
 
-from tap_exacttarget.client import request
-from tap_exacttarget.dao import (DataAccessObject, exacttarget_error_handling)
-from tap_exacttarget.endpoints.subscribers import SubscriberDataAccessObject
-from tap_exacttarget.pagination import get_date_page, before_date, \
+from tap_marketingcloud.client import request
+from tap_marketingcloud.dao import (DataAccessObject, exacttarget_error_handling)
+from tap_marketingcloud.endpoints.subscribers import SubscriberDataAccessObject
+from tap_marketingcloud.pagination import get_date_page, before_date, \
     increment_date
-from tap_exacttarget.state import incorporate, save_state, \
+from tap_marketingcloud.state import incorporate, save_state, \
     get_last_record_value_for_table
-from tap_exacttarget.util import partition_all, sudsobj_to_dict
+from tap_marketingcloud.util import partition_all, sudsobj_to_dict
 
 
 LOGGER = singer.get_logger()

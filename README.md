@@ -1,4 +1,4 @@
-# tap-exacttarget
+# tap-marketingcloud
 
 Author: Pau Figueras (pau@datainnovation.io) @ Data Innovation
 
@@ -8,24 +8,24 @@ It:
 
 - Generates a catalog of available data in Exacttarget
 - Extracts the following resources:
-  - [Campaigns](https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/campaign.htm) ([source](../master/tap_exacttarget/endpoints/campaigns.py))
-  - [Content Areas](https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/contentarea.htm) ([source](../master/tap_exacttarget/endpoints/content_areas.py))
-  - [Data Extensions](https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/dataextension.htm) and their corresponding [rows](https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/dataextensionobject.htm) ([source](../master/tap_exacttarget/endpoints/data_extensions.py))
-  - [Emails](https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/email.htm) ([source](../master/tap_exacttarget/endpoints/emails.py))
-  - Events: Each of [BounceEvent](https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/bounceevent.htm), [ClickEvent](https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/clickevent.htm), [OpenEvent](https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/openevent.htm), [SentEvent](https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/sentevent.htm), [UnsubEvent](https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/unsubevent.htm) go into a single `event` table ([source](../master/tap_exacttarget/endpoints/events.py))
-  - [Folders](https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/datafolder.htm) ([source](../master/tap_exacttarget/endpoints/folders.py))
-  - [List Subscribers](https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/listsubscriber.htm) ([source](../master/tap_exacttarget/endpoints/list_subscribers.py))
-  - [Lists](https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/list.htm) ([source](../master/tap_exacttarget/endpoints/lists.py))
-  - [Sends](https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/send.htm) ([source](../master/tap_exacttarget/endpoints/sends.py))
-  - [Subscribers](https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/send.htm) (requires List Subscribers) ([source](../master/tap_exacttarget/endpoints/subscribers.py))
+  - [Campaigns](https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/campaign.htm) ([source](../master/tap_marketingcloud/endpoints/campaigns.py))
+  - [Content Areas](https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/contentarea.htm) ([source](../master/tap_marketingcloud/endpoints/content_areas.py))
+  - [Data Extensions](https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/dataextension.htm) and their corresponding [rows](https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/dataextensionobject.htm) ([source](../master/tap_marketingcloud/endpoints/data_extensions.py))
+  - [Emails](https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/email.htm) ([source](../master/tap_marketingcloud/endpoints/emails.py))
+  - Events: Each of [BounceEvent](https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/bounceevent.htm), [ClickEvent](https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/clickevent.htm), [OpenEvent](https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/openevent.htm), [SentEvent](https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/sentevent.htm), [UnsubEvent](https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/unsubevent.htm) go into a single `event` table ([source](../master/tap_marketingcloud/endpoints/events.py))
+  - [Folders](https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/datafolder.htm) ([source](../master/tap_marketingcloud/endpoints/folders.py))
+  - [List Subscribers](https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/listsubscriber.htm) ([source](../master/tap_marketingcloud/endpoints/list_subscribers.py))
+  - [Lists](https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/list.htm) ([source](../master/tap_marketingcloud/endpoints/lists.py))
+  - [Sends](https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/send.htm) ([source](../master/tap_marketingcloud/endpoints/sends.py))
+  - [Subscribers](https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/send.htm) (requires List Subscribers) ([source](../master/tap_marketingcloud/endpoints/subscribers.py))
 
 ### Quick Start
 
 1. Install
 
 ```bash
-git clone https://github.com/pswsm/tap-exacttarget.git
-cd tap-exacttarget
+git clone https://github.com/pswsm/tap-marketingcloud.git
+cd tap-marketingcloud
 pip install .
 ```
 
@@ -45,7 +45,7 @@ There is a template you can use at `config.json.example`, just copy it to `confi
 4. Run the application to generate a catalog.
 
 ```bash
-tap-exacttarget -c config.json --discover > catalog.json
+tap-marketingcloud -c config.json --discover > catalog.json
 ```
 
 5. Select the tables you'd like to replicate
@@ -55,7 +55,7 @@ Step 4 a file called `catalog.json` that specifies all the available endpoints a
 6. Run it!
 
 ```bash
-tap-exacttarget -c config.json --properties catalog.json
+tap-marketingcloud -c config.json --properties catalog.json
 ```
 
 ### Gotchas

@@ -1,5 +1,5 @@
 import unittest
-import tap_exacttarget.state as _state
+import tap_marketingcloud.state as _state
 
 
 class TestGetLastRecordValueForTable(unittest.TestCase):

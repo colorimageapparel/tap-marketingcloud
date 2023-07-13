@@ -2,7 +2,7 @@ import FuelSDK
 import singer
 
 from suds.transport.https import HttpAuthenticated
-from tap_exacttarget.fuel_overrides import tap_exacttarget__getMoreResults
+from tap_marketingcloud.fuel_overrides import tap_marketingcloud__getMoreResults
 
 LOGGER = singer.get_logger()
 
@@ -152,7 +152,7 @@ def request_from_cursor(name, cursor, batch_size):
     items in that cursor.
 
     Primarily used internally by `request`, but can be used if cursors have
-    to be customized. See tap_exacttarget.endpoints.data_extensions for
+    to be customized. See tap_marketingcloud.endpoints.data_extensions for
     an example.
     """
     response = cursor.get()
@@ -174,7 +174,7 @@ def request_from_cursor(name, cursor, batch_size):
         else:
             # Override call to getMoreResults to add a batch_size parameter
             # response = cursor.getMoreResults()
-            response = tap_exacttarget__getMoreResults(cursor, batch_size=batch_size)
+            response = tap_marketingcloud__getMoreResults(cursor, batch_size=batch_size)
 
         if not response.status:
             raise RuntimeError("Request failed with '{}'"

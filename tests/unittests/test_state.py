@@ -1,6 +1,6 @@
 import unittest
-import tap_exacttarget
-from tap_exacttarget.state import incorporate
+import tap_marketingcloud
+from tap_marketingcloud.state import incorporate
 
 
 class TestState(unittest.TestCase):

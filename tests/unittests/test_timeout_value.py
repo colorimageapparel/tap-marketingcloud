@@ -1,6 +1,6 @@
 import unittest
 from unittest import mock
-import tap_exacttarget.client as _client
+import tap_marketingcloud.client as _client
 
 # mock soap client
 class SOAP_Client:

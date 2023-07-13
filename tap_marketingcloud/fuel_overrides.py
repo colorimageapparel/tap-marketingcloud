@@ -9,7 +9,7 @@ much memory to be run in Stitch. If the Stitch memory limits are raised, or if
 there is a more native way to specify this configuration, then this tap should
 be modified to call into the getMoreRequests() method in the FuelSDK module.
 
-See: https://github.com/singer-io/tap-exacttarget/issues/25
+See: https://github.com/singer-io/tap-marketingcloud/issues/25
 """
 
 
@@ -20,7 +20,7 @@ class TapExacttarget__ET_Continue(FuelSDK.rest.ET_Constructor):
         ws_continueRequest = auth_stub.soap_client.factory.create('RetrieveRequest')
         ws_continueRequest.ContinueRequest = request_id
 
-        # tap-exacttarget override: set batch size here
+        # tap-marketingcloud override: set batch size here
         ws_continueRequest.Options.BatchSize = batch_size
 
         response = auth_stub.soap_client.service.Retrieve(ws_continueRequest)
@@ -28,7 +28,7 @@ class TapExacttarget__ET_Continue(FuelSDK.rest.ET_Constructor):
         if response is not None:
             super().__init__(response)
 
-def tap_exacttarget__getMoreResults(cursor, batch_size=2500):
+def tap_marketingcloud__getMoreResults(cursor, batch_size=2500):
     obj = TapExacttarget__ET_Continue(cursor.auth_stub, cursor.last_request_id, batch_size)
     if obj is not None:
         cursor.last_request_id = obj.request_id

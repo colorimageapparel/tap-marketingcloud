@@ -1,10 +1,10 @@
 import unittest
-import tap_exacttarget.dao as dao
+import tap_marketingcloud.dao as dao
 from unittest import mock
 
 class TestSchema(unittest.TestCase):
 
-    @mock.patch("tap_exacttarget.dao.get_abs_path")
+    @mock.patch("tap_marketingcloud.dao.get_abs_path")
     @mock.patch("singer.utils.load_json")
     def test_load_schema(self, mocked_load_json, mocked_get_abs_path):
         field_schema = {
@@ -25,7 +25,7 @@ class TestSchema(unittest.TestCase):
         # verify if the 'schema' is same as 'field_schema'
         self.assertEquals(schema, field_schema)
 
-    @mock.patch("tap_exacttarget.dao.get_abs_path")
+    @mock.patch("tap_marketingcloud.dao.get_abs_path")
     @mock.patch("singer.utils.load_json")
     def test_load_schema_references(self, mocked_load_json, mocked_get_abs_path):
         field_schema = {

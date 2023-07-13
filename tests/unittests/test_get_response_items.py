@@ -1,6 +1,6 @@
 import unittest
 from unittest import mock
-import tap_exacttarget.client as _client
+import tap_marketingcloud.client as _client
 
 class Mockresponse:
     def __init__(self, json):
@@ -9,7 +9,7 @@ class Mockresponse:
 
 class TestGetResponseItems(unittest.TestCase):
 
-    @mock.patch("tap_exacttarget.client.LOGGER.info")
+    @mock.patch("tap_marketingcloud.client.LOGGER.info")
     def test_result_without_count(self, mocked_logger):
         json = [{
             "key1": "value1",
@@ -22,7 +22,7 @@ class TestGetResponseItems(unittest.TestCase):
         self.assertEquals(items, json)
         mocked_logger.assert_called_with("Got %s results from %s endpoint.", 2, "TestDataAccessObject")
 
-    @mock.patch("tap_exacttarget.client.LOGGER.info")
+    @mock.patch("tap_marketingcloud.client.LOGGER.info")
     def test_result_with_count(self, mocked_logger):
         json = {
             "count": 2,
