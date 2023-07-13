@@ -9,7 +9,7 @@ DATE_FORMAT = "%Y-%m-%dT%H:%M:%SZ"
 
 # checks if the 'date_value' is less than or equal to now date
 def before_date(date_value, date_limit):
-    return (datetime.datetime.strptime(date_value, DATE_FORMAT) <= date_limit)
+    return (datetime.datetime.strptime(date_value, DATE_FORMAT) <= datetime.datetime.strptime(date_limit, DATE_FORMAT))
 
 
 # increment date by the values present in 'unit'

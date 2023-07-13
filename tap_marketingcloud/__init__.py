@@ -2,30 +2,22 @@
 
 import argparse
 import json
-
 import sys
-
 import singer
+
 from singer import utils
 from singer import metadata
-
 from tap_marketingcloud.state import save_state
-
 from tap_marketingcloud.client import get_auth_stub
-
-from tap_marketingcloud.endpoints.campaigns \
-    import CampaignDataAccessObject
-from tap_marketingcloud.endpoints.content_areas \
-    import ContentAreaDataAccessObject
-from tap_marketingcloud.endpoints.data_extensions \
-    import DataExtensionDataAccessObject
+from tap_marketingcloud.endpoints.campaigns import CampaignDataAccessObject
+from tap_marketingcloud.endpoints.content_areas import ContentAreaDataAccessObject
+from tap_marketingcloud.endpoints.data_extensions import DataExtensionDataAccessObject
 from tap_marketingcloud.endpoints.emails import EmailDataAccessObject
 from tap_marketingcloud.endpoints.events import EventDataAccessObject
 from tap_marketingcloud.endpoints.folders import FolderDataAccessObject
 from tap_marketingcloud.endpoints.lists import ListDataAccessObject
 from tap_marketingcloud.endpoints.list_sends import ListSendDataAccessObject
-from tap_marketingcloud.endpoints.list_subscribers \
-    import ListSubscriberDataAccessObject
+from tap_marketingcloud.endpoints.list_subscribers import ListSubscriberDataAccessObject
 from tap_marketingcloud.endpoints.sends import SendDataAccessObject
 from tap_marketingcloud.endpoints.subscribers import SubscriberDataAccessObject
 
@@ -34,7 +26,8 @@ LOGGER = singer.get_logger()  # noqa
 
 REQUIRED_CONFIG_KEYS = [
     'client_id',
-    'client_secret'
+    'client_secret',
+    'start_date'
 ]
 
 

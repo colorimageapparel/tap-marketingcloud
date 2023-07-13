@@ -13,7 +13,7 @@ See: https://github.com/singer-io/tap-marketingcloud/issues/25
 """
 
 
-class TapExacttarget__ET_Continue(FuelSDK.rest.ET_Constructor):
+class TapMarketingcloud__ET_Continue(FuelSDK.rest.ET_Constructor):
     def __init__(self, auth_stub, request_id, batch_size):
         auth_stub.refresh_token()
 
@@ -28,15 +28,17 @@ class TapExacttarget__ET_Continue(FuelSDK.rest.ET_Constructor):
         if response is not None:
             super().__init__(response)
 
+
 def tap_marketingcloud__getMoreResults(cursor, batch_size=2500):
-    obj = TapExacttarget__ET_Continue(cursor.auth_stub, cursor.last_request_id, batch_size)
+    obj = TapMarketingcloud__ET_Continue(cursor.auth_stub, cursor.last_request_id, batch_size)
     if obj is not None:
         cursor.last_request_id = obj.request_id
 
     return obj
 
+
 # extend 'get' from 'ET_DataExtension_Row' and add 'options' parameter to set 'batch_size'
-class TapExacttarget__ET_DataExtension_Row(FuelSDK.ET_DataExtension_Row):
+class TapMarketingcloud__ET_DataExtension_Row(FuelSDK.ET_DataExtension_Row):
 
     def get(self):
         self.getName()
@@ -46,7 +48,7 @@ class TapExacttarget__ET_DataExtension_Row(FuelSDK.ET_DataExtension_Row):
         end
         '''
 
-        if self.props is not None and type(self.props) is dict: # pylint:disable=unidiomatic-typecheck
+        if self.props is not None and type(self.props) is dict:  # pylint:disable=unidiomatic-typecheck
             self.props = self.props.keys()
 
         '''
@@ -61,8 +63,9 @@ class TapExacttarget__ET_DataExtension_Row(FuelSDK.ET_DataExtension_Row):
 
         return obj
 
+
 # extend 'get' from 'ET_DataExtension_Column' and add 'options' parameter to set 'batch_size'
-class TapExacttarget__ET_DataExtension_Column(FuelSDK.ET_DataExtension_Column):
+class TapMarketingcloud__ET_DataExtension_Column(FuelSDK.ET_DataExtension_Column):
 
     def get(self):
         '''
@@ -71,7 +74,7 @@ class TapExacttarget__ET_DataExtension_Column(FuelSDK.ET_DataExtension_Column):
         end
         '''
 
-        if self.props is not None and type(self.props) is dict: # pylint:disable=unidiomatic-typecheck
+        if self.props is not None and type(self.props) is dict:  # pylint:disable=unidiomatic-typecheck
             self.props = self.props.keys()
 
         '''
