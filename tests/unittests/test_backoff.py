@@ -154,7 +154,7 @@ class TestConnectionResetError(unittest.TestCase):
         # verify the code backed off and requested for 5 times
         self.assertEquals(mocked_get.call_count, 5)
 
-    @mock.patch("tap_marketingcloud.fuel_overrides.TapExacttarget__ET_DataExtension_Column.get")
+    @mock.patch("tap_marketingcloud.fuel_overrides.TapMarketingcloud__ET_DataExtension_Column.get")
     def test_connection_reset_error_occurred__data_extension_get_fields(self, mocked_data_ext_column, mocked_sleep):
         """
             Test case to verify that we backoff for 5 times when 'ConnectionResetError' error occurs
@@ -171,7 +171,7 @@ class TestConnectionResetError(unittest.TestCase):
         # verify the code backed off and requested for 5 times
         self.assertEquals(mocked_data_ext_column.call_count, 5)
 
-    @mock.patch("tap_marketingcloud.fuel_overrides.TapExacttarget__ET_DataExtension_Row.get")
+    @mock.patch("tap_marketingcloud.fuel_overrides.TapMarketingcloud__ET_DataExtension_Row.get")
     def test_connection_reset_error_occurred__data_extension_replicate(self, mocked_data_ext_column, mocked_sleep):
         """
             Test case to verify that we backoff for 5 times when 'ConnectionResetError' error occurs
@@ -623,7 +623,7 @@ class TestSocketTimeoutError(unittest.TestCase):
         # verify the code backed off and requested for 5 times
         self.assertEquals(mocked_get.call_count, 5)
 
-    @mock.patch("tap_marketingcloud.fuel_overrides.TapExacttarget__ET_DataExtension_Column.get")
+    @mock.patch("tap_marketingcloud.fuel_overrides.TapMarketingcloud__ET_DataExtension_Column.get")
     def test_socket_timeout_error_occurred__data_extension_get_fields(self, mocked_data_ext_column, mocked_sleep):
         """
             Test case to verify that we backoff for 5 times when 'socket.timeout' error occurs
@@ -640,7 +640,7 @@ class TestSocketTimeoutError(unittest.TestCase):
         # verify the code backed off and requested for 5 times
         self.assertEquals(mocked_data_ext_column.call_count, 5)
 
-    @mock.patch("tap_marketingcloud.fuel_overrides.TapExacttarget__ET_DataExtension_Row.get")
+    @mock.patch("tap_marketingcloud.fuel_overrides.TapMarketingcloud__ET_DataExtension_Row.get")
     def test_socket_timeout_error_occurred__data_extension_replicate(self, mocked_data_ext_column, mocked_sleep):
         """
             Test case to verify that we backoff for 5 times when 'socket.timeout' error occurs
@@ -1093,7 +1093,7 @@ class TestTimeoutError(unittest.TestCase):
         # verify the code backed off and requested for 5 times
         self.assertEquals(mocked_get.call_count, 5)
 
-    @mock.patch("tap_marketingcloud.fuel_overrides.TapExacttarget__ET_DataExtension_Column.get")
+    @mock.patch("tap_marketingcloud.fuel_overrides.TapMarketingcloud__ET_DataExtension_Column.get")
     def test_timeout_error_occurred__data_extension_get_fields(self, mocked_data_ext_column, mocked_sleep):
         """
             Test case to verify that we backoff for 5 times when 'URLError' error occurs
@@ -1110,7 +1110,7 @@ class TestTimeoutError(unittest.TestCase):
         # verify the code backed off and requested for 5 times
         self.assertEquals(mocked_data_ext_column.call_count, 5)
 
-    @mock.patch("tap_marketingcloud.fuel_overrides.TapExacttarget__ET_DataExtension_Row.get")
+    @mock.patch("tap_marketingcloud.fuel_overrides.TapMarketingcloud__ET_DataExtension_Row.get")
     def test_timeout_error_occurred__data_extension_replicate(self, mocked_data_ext_column, mocked_sleep):
         """
             Test case to verify that we backoff for 5 times when 'URLError' error occurs

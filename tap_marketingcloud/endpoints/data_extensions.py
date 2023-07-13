@@ -11,8 +11,8 @@ from tap_marketingcloud.pagination import get_date_page, before_date, \
 from tap_marketingcloud.state import incorporate, save_state, \
     get_last_record_value_for_table
 from tap_marketingcloud.util import sudsobj_to_dict
-from tap_marketingcloud.fuel_overrides import TapExacttarget__ET_DataExtension_Row, \
-    TapExacttarget__ET_DataExtension_Column
+from tap_marketingcloud.fuel_overrides import TapMarketingcloud__ET_DataExtension_Row, \
+    TapMarketingcloud__ET_DataExtension_Column
 
 LOGGER = singer.get_logger()  # noqa
 
@@ -117,7 +117,7 @@ class DataExtensionDataAccessObject(DataAccessObject):
         result = request(
             'DataExtensionField',
             # use custom class to apply 'batch_size'
-            TapExacttarget__ET_DataExtension_Column,
+            TapMarketingcloud__ET_DataExtension_Column,
             self.auth_stub,
             batch_size=self.batch_size)
 
@@ -287,7 +287,7 @@ class DataExtensionDataAccessObject(DataAccessObject):
                         .format(table, start, end))
 
         # use custom class to apply 'batch_size'
-        cursor = TapExacttarget__ET_DataExtension_Row()
+        cursor = TapMarketingcloud__ET_DataExtension_Row()
         cursor.auth_stub = self.auth_stub
         cursor.CustomerKey = customer_key
         cursor.props = keys
