@@ -36,6 +36,15 @@ def get_last_record_value_for_table(state, table, config):
     return date_obj.strftime(DATE_FORMAT)
 
 
+def get_end_date(config: dict):
+    end_date = config.get('end_date')
+
+    if end_date is None:
+        return datetime.datetime.utcnow()
+
+    return config['end_date']
+
+
 # updated the state file with the provided value
 def incorporate(state, table, field, value):
     if value is None:
