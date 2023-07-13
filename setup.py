@@ -14,7 +14,7 @@ setup(
         'funcy==2.0',
         'singer-python==5.13.0',
         'python-dateutil==2.8.0',
-        'voluptuous==0.13.',
+        'voluptuous==0.13',
         'Salesforce-FuelSDK==1.3.0'
     ],
     extras_require={
