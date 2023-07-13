@@ -1,6 +1,6 @@
 # tap-exacttarget
 
-Author: Connor McArthur (connor@fishtownanalytics.com)
+Author: Pau Figueras (pau@datainnovation.io) @ Data Innovation
 
 This is a [Singer](http://singer.io) tap that produces JSON-formatted data following the [Singer spec](https://github.com/singer-io/getting-started/blob/master/SPEC.md).
 
@@ -24,7 +24,7 @@ It:
 1. Install
 
 ```bash
-git clone git@github.com:fishtown-analytics/tap-exacttarget.git
+git clone https://github.com/pswsm/tap-exacttarget.git
 cd tap-exacttarget
 pip install .
 ```

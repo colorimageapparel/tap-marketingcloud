@@ -9,6 +9,7 @@ LOGGER = singer.get_logger()
 # default request timeout
 REQUEST_TIMEOUT = 300
 
+
 # prints the number of records fetched from the passed endpoint
 def _get_response_items(response, name):
     items = response.results
@@ -39,7 +40,7 @@ def get_auth_stub(config):
     params = {
         'clientid': config['client_id'],
         'clientsecret': config['client_secret']
-        }
+    }
 
     if config.get('tenant_subdomain'):
         # For S10+ accounts: https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/your-subdomain-tenant-specific-endpoints.htm

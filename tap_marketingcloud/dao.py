@@ -17,8 +17,10 @@ LOGGER = singer.get_logger()
 def _get_catalog_schema(catalog):
     return catalog.get('schema', {}).get('properties')
 
+
 def get_abs_path(path):
     return os.path.join(os.path.dirname(os.path.realpath(__file__)), path)
+
 
 # function to load the fields in the 'definitions' which contains the reference fields
 def load_schema_references():
@@ -30,6 +32,7 @@ def load_schema_references():
 
     return refs
 
+
 # function to load schema from json file
 def load_schema(stream):
     path = get_abs_path('schemas/{}s.json'.format(stream))
@@ -37,6 +40,7 @@ def load_schema(stream):
     schema = utils.load_json(path)
 
     return schema
+
 
 # boolean function to check if the error is 'timeout' error or not
 def is_timeout_error(e):
@@ -49,10 +53,11 @@ def is_timeout_error(e):
         return False
     return True
 
+
 # decorator for retrying on error
 def exacttarget_error_handling(fnc):
     @backoff.on_exception(backoff.expo,
-                          urllib.error.URLError, # backoff 'timeout' error for SOAP API
+                          urllib.error.URLError,    # backoff 'timeout' error for SOAP API
                           giveup=is_timeout_error,
                           max_tries=5,
                           factor=2)
@@ -64,6 +69,7 @@ def exacttarget_error_handling(fnc):
     def wrapper(*args, **kwargs):
         return fnc(*args, **kwargs)
     return wrapper
+
 
 class DataAccessObject():
 

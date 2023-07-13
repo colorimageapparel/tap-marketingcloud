@@ -5,7 +5,7 @@ import singer
 from tap_exacttarget.client import request
 from tap_exacttarget.dao import (DataAccessObject, exacttarget_error_handling)
 from tap_exacttarget.endpoints.subscribers import SubscriberDataAccessObject
-from tap_exacttarget.pagination import get_date_page, before_now, \
+from tap_exacttarget.pagination import get_date_page, before_date, \
     increment_date
 from tap_exacttarget.state import incorporate, save_state, \
     get_last_record_value_for_table
@@ -90,7 +90,7 @@ class ListSubscriberDataAccessObject(DataAccessObject):
 
         all_subscribers_list = self._get_all_subscribers_list()
 
-        while before_now(start):
+        while before_date(start):
             stream = request('ListSubscriber',
                              FuelSDK.ET_List_Subscriber,
                              self.auth_stub,

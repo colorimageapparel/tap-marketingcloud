@@ -3,13 +3,13 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='tap-exacttarget',
-    version='1.7.1',
-    description='Singer.io tap for extracting data from the ExactTarget API',
-    author='Fishtown Analytics',
-    url='http://fishtownanalytics.com',
+    name='tap-marketingcloud',
+    version='1.0.0',
+    description='Singer.io tap for extracting data from the Salesforce Marketingcloud API',
+    author='Data Innovation',
+    url='https://datainnovation.io',
     classifiers=['Programming Language :: Python :: 3 :: Only'],
-    py_modules=['tap_exacttarget'],
+    py_modules=['tap-marketingcloud'],
     install_requires=[
         'funcy==1.9.1',
         'singer-python==5.12.1',
@@ -29,10 +29,10 @@ setup(
     },
     entry_points='''
     [console_scripts]
-    tap-exacttarget=tap_exacttarget:main
+    tap-marketingcloud=tap_marketingcloud:main
     ''',
     packages=find_packages(),
     package_data={
-        'tap_exacttarget': ['schemas/*.json']
+        'tap_marketingcloud': ['schemas/*.json']
     }
 )
