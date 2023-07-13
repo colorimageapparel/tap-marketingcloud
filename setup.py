@@ -11,10 +11,10 @@ setup(
     classifiers=['Programming Language :: Python :: 3 :: Only'],
     py_modules=['tap-marketingcloud'],
     install_requires=[
-        'funcy==1.9.1',
-        'singer-python==5.12.1',
-        'python-dateutil==2.6.0',
-        'voluptuous==0.10.5',
+        'funcy==2.0',
+        'singer-python==5.13.0',
+        'python-dateutil==2.8.0',
+        'voluptuous==0.13.',
         'Salesforce-FuelSDK==1.3.0'
     ],
     extras_require={
