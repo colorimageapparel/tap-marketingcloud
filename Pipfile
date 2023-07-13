@@ -4,10 +4,9 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-singer = "*"
+singer-python = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.7"
-python_full_version = "3.7.17"
+python_version = "3.8"
