@@ -157,15 +157,16 @@ def request_from_cursor(name, cursor, batch_size):
     """
     response = cursor.get()
 
-    if not response.status:
-        raise RuntimeError("Request failed with '{}'"
-                           .format(response.message))
+    # LOGGER.info("Response: %s", response.__dict__)
 
     for item in _get_response_items(response, name):
         yield item
 
     while response.more_results:
+        # __import__('pdb').set_trace()
         LOGGER.info("Getting more results from '{}' endpoint".format(name))
+
+        # cursor.getMoreResults()
 
         if isinstance(cursor, FuelSDK.ET_Campaign):
             # use 'getMoreResults' for campaigns as it does not use
@@ -177,6 +178,7 @@ def request_from_cursor(name, cursor, batch_size):
             response = tap_marketingcloud__getMoreResults(cursor, batch_size=batch_size)
 
         if not response.status:
+            LOGGER.info("Response details: %s", response.__dict__)
             raise RuntimeError("Request failed with '{}'"
                                .format(response.message))
 

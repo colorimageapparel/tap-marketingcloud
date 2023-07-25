@@ -21,7 +21,7 @@ class TapMarketingcloud__ET_Continue(FuelSDK.rest.ET_Constructor):
         ws_continueRequest.ContinueRequest = request_id
 
         # tap-marketingcloud override: set batch size here
-        ws_continueRequest.Options.BatchSize = batch_size
+        # ws_continueRequest.Options.BatchSize = batch_size
 
         response = auth_stub.soap_client.service.Retrieve(ws_continueRequest)
 

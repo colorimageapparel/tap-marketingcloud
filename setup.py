@@ -15,7 +15,7 @@ setup(
         'singer-python==5.13.0',
         'python-dateutil==2.8.0',
         'voluptuous==0.13',
-        'Salesforce-FuelSDK-DI @ https://test-files.pythonhosted.org/packages/de/33/c6dfb4b9a3331486d898c951929a88ab5548af6f69514f34b8f2e0c74e61/Salesforce_FuelSDK_DI-2.0.3-py3-none-any.whl'
+        'Salesforce-FuelSDK-DI @ https://test-files.pythonhosted.org/packages/bb/64/157b33e27ffcfce0cf83b1675b16fee3ee725ee821e84d82536dd497e1af/Salesforce_FuelSDK_DI-2.0.5-py3-none-any.whl'
     ],
     extras_require={
         'test': [

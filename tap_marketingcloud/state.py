@@ -40,9 +40,10 @@ def get_end_date(config: dict):
     end_date = config.get('end_date')
 
     if end_date is None:
-        return datetime.datetime.utcnow()
+        return datetime.datetime.strftime(datetime.datetime.utcnow(), DATE_FORMAT)
 
-    return config['end_date']
+    # LOGGER.info('End date: %s', end_date)
+    return end_date
 
 
 # updated the state file with the provided value

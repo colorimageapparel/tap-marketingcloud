@@ -49,7 +49,10 @@ class EventDataAccessObject(DataAccessObject):
 
             end = increment_date(start, unit)
 
+            LOGGER.info('Before date: %s', before_date(start, end_date))
+
             while before_date(start, end_date):
+                LOGGER.info('Start: %s, end: %s, date comparison: %s', start, end_date, before_date(start, end_date))
                 LOGGER.info("Fetching {} from {} to {}"
                             .format(event_name, start, end))
 
