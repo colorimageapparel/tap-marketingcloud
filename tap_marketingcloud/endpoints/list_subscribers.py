@@ -8,7 +8,7 @@ from tap_marketingcloud.endpoints.subscribers import SubscriberDataAccessObject
 from tap_marketingcloud.pagination import get_date_page, before_date, \
     increment_date
 from tap_marketingcloud.state import incorporate, save_state, \
-    get_last_record_value_for_table
+    get_last_record_value_for_table, get_end_date
 from tap_marketingcloud.util import partition_all, sudsobj_to_dict
 
 
@@ -78,6 +78,7 @@ class ListSubscriberDataAccessObject(DataAccessObject):
 
         # pass config to return start date if not bookmark is found
         start = get_last_record_value_for_table(self.state, table, self.config)
+        end_date = get_end_date(self.config)
 
         pagination_unit = self.config.get(
             'pagination__list_subscriber_interval_unit', 'days')
@@ -90,7 +91,7 @@ class ListSubscriberDataAccessObject(DataAccessObject):
 
         all_subscribers_list = self._get_all_subscribers_list()
 
-        while before_date(start):
+        while before_date(start, end_date):
             stream = request('ListSubscriber',
                              FuelSDK.ET_List_Subscriber,
                              self.auth_stub,
