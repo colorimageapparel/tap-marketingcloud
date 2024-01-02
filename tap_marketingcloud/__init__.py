@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-import argparse
 import json
 import sys
 import singer
@@ -11,7 +10,6 @@ from tap_marketingcloud.state import save_state
 from tap_marketingcloud.client import get_auth_stub
 from tap_marketingcloud.endpoints.campaigns import CampaignDataAccessObject
 from tap_marketingcloud.endpoints.content_areas import ContentAreaDataAccessObject
-from tap_marketingcloud.endpoints.data_extensions import DataExtensionDataAccessObject
 from tap_marketingcloud.endpoints.emails import EmailDataAccessObject
 from tap_marketingcloud.endpoints.events import EventDataAccessObject
 from tap_marketingcloud.endpoints.folders import FolderDataAccessObject
@@ -34,7 +32,6 @@ REQUIRED_CONFIG_KEYS = [
 AVAILABLE_STREAM_ACCESSORS = [
     CampaignDataAccessObject,
     ContentAreaDataAccessObject,
-    DataExtensionDataAccessObject,
     EmailDataAccessObject,
     EventDataAccessObject,
     FolderDataAccessObject,

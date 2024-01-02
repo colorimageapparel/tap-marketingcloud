@@ -28,6 +28,27 @@
         },
         "SubscriberKey": {
             "$ref": "definitions.json#/SUBSCRIBER_KEY_FIELD"
+        },
+        "BounceType": {
+            "type": ["null","string"],
+            "description": "Defines type of bounce associated with a bounced email."
+        },
+        "BounceCategory": {
+            "type": ["null","string"],
+            "description": "Defines category for bounce associated with a bounced email."
+        },
+        "SMTPCode": {
+            "type": ["null","string"],
+            "description": "Contains SMTP code related to a bounced email."
+        },
+        "SMTPReason": {
+            "type": ["null","string"],
+            "description": "Contains SMTP reason associated with a bounced email."
+        },
+        "ModifiedDate": {
+            "type": ["null", "string"],
+            "format": "datetime",
+            "description": "Indicates the last time object information was modified."
         }
     }
 }

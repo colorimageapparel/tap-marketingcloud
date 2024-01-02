@@ -177,7 +177,7 @@ def request_from_cursor(name, cursor, batch_size):
             # response = cursor.getMoreResults()
             response = tap_marketingcloud__getMoreResults(cursor, batch_size=batch_size)
 
-        if not response.status:
+        if response.code != 200:
             LOGGER.info("Response details: %s", response.__dict__)
             raise RuntimeError("Request failed with '{}'"
                                .format(response.message))

@@ -25,7 +25,6 @@ class EventDataAccessObject(DataAccessObject):
         endpoints = {
             'sent': FuelSDK.ET_SentEvent,
             'click': FuelSDK.ET_ClickEvent,
-            'open': FuelSDK.ET_OpenEvent,
             'bounce': FuelSDK.ET_BounceEvent,
             'unsub': FuelSDK.ET_UnsubEvent
         }
