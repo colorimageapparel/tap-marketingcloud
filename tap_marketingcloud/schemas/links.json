@@ -1,0 +1,37 @@
+{
+    "type": "object",
+    "properties": {
+        "URL": {
+            "type": ["null", "string"],
+            "description": "Indicates URL included in an event or configuration."
+        },
+        "TotalClicks": {
+            "type": ["null", "integer"],
+            "description": "Indicates total number of clicks on link in message."
+        },
+        "UniqueClicks": {
+            "type": ["null", "integer"],
+            "description": "Indicates number of unique clicks on message."
+        },
+        "LastClicked": {
+            "type": ["null", "string"],
+            "description": "Indicates last time a link included in a message was clicked."
+        },
+        "Alias": {
+            "type": ["null", "string"],
+            "description": "Name of link contained in message."
+        },
+        "CreatedDate": {
+            "$ref": "definitions.json#/CREATED_DATE_FIELD"
+        },
+        "ID": {
+            "$ref": "definitions.json#/ID_FIELD"
+        },
+        "ModifiedDate": {
+            "$ref": "definitions.json#/MODIFIED_DATE_FIELD"
+        },
+        "ObjectID": {
+            "$ref": "definitions.json#/OBJECT_ID_FIELD"
+        }
+    }
+}

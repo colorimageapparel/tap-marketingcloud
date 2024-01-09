@@ -1,0 +1,95 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": ["null", "string"],
+            "description": "Journey ID"
+        },
+        "key": {
+            "type": ["null", "string"]
+        },
+        "name": {
+            "type": ["null", "string"]
+        },
+        "lastPublishedDate": {
+            "type": ["null", "string"]
+        },
+        "description": {
+            "type": ["null", "string"]
+        },
+        "version": {
+            "type": ["null", "number"]
+        },
+        "workflowApiVersion": {
+            "type": ["null", "number"]
+        },
+        "createdDate": {
+            "type": ["null", "string"],
+            "format": "datetime"
+        },
+        "modifiedDate": {
+            "type": ["null", "string"],
+            "format": "datetime"
+        },
+        "activities": {
+            "type": ["null", "array"],
+            "items": {
+                "type": "object"
+            }
+        },
+        "triggers": {
+            "type": ["null", "array"],
+            "items": {
+                "type": "object"
+            }
+        },
+        "goals": {
+            "type": ["null", "array"],
+            "items": {
+                "type": "object"
+            }
+        },
+        "exits": {
+            "type": ["null", "array"],
+            "items": {
+                "type": "object"
+            }
+        },
+        "notifiers": {
+            "type": ["null", "array"],
+            "items": {
+                "type": "object"
+            }
+        },
+        "stats": {
+            "type": ["null", "object"]
+        },
+        "entryMode": {
+            "type": ["null", "string"]
+        },
+        "definitionType": {
+            "type": ["null", "string"]
+        },
+        "channel": {
+            "type": ["null", "string"]
+        },
+        "metaData": {
+            "type": ["null", "object"]
+        },
+        "executionMode": {
+            "type": ["null", "string"]
+        },
+        "categoryId": {
+            "type": ["null", "string"]
+        },
+        "status": {
+            "type": ["null", "string"]
+        },
+        "definitionId": {
+            "type": ["null", "string"]
+        },
+        "scheduledStatus": {
+            "type": ["null", "string"]
+        }
+    }
+}

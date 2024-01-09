@@ -1,0 +1,35 @@
+{
+    "type": "object",
+    "properties": {
+        "CreatedDate": {
+            "$ref": "definitions.json#/CREATED_DATE_FIELD"
+        },
+        "ModifiedDate": {
+            "$ref": "definitions.json#/MODIFIED_DATE_FIELD"
+        },
+        "CustomerKey": {
+            "$ref": "definitions.json#/CUSTOMER_KEY_FIELD"
+        },
+        "LinkID": {
+            "type": ["null", "integer"],
+            "description": "List associated with the send."
+        },
+        "ID": {
+            "$ref": "definitions.json#/ID_FIELD"
+        },
+        "ObjectID": {
+            "$ref": "definitions.json#/OBJECT_ID_FIELD"
+        },
+        "PartnerProperties": {
+            "$ref": "definitions.json#/CUSTOM_PROPERTY_LIST"
+        },
+        "SendID": {
+            "type": ["null", "integer"],
+            "description": "Contains identifier for a specific send."
+        },
+        "Link": {
+            "type": ["null", "string"],
+            "description": "Stores the sent link in the send."
+        }
+    }
+}
