@@ -49,6 +49,15 @@
             "type": ["null", "string"],
             "format": "datetime",
             "description": "Indicates the last time object information was modified."
+        },
+        "TriggeredSendDefinitionObjectID": {
+            "type": ["null","string"]
+        },
+        "ObjectID": {
+            "type": ["null","string"]
+        },
+        "ID": {
+            "type": ["null","string"]
         }
     }
 }
