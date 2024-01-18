@@ -100,12 +100,10 @@ class ListSubscriberDataAccessObject(DataAccessObject):
                                  start, unit),
                              batch_size=self.batch_size)
 
-            batch_size = 100
+            batch_size = 10000
 
             if self.replicate_subscriber:
                 subscriber_dao.write_schema()
-
-            catalog_copy = copy.deepcopy(self.catalog)
 
             for list_subscribers_batch in partition_all(stream, batch_size):
                 for list_subscriber in list_subscribers_batch:
@@ -118,9 +116,7 @@ class ListSubscriberDataAccessObject(DataAccessObject):
                             table,
                             'ModifiedDate',
                             list_subscriber.get('ModifiedDate'))
-
-                    self.write_records_with_transform(list_subscriber, catalog_copy, table)
-
+                            
                 if self.replicate_subscriber:
                     # make the list of subscriber keys
                     subscriber_keys = list(map(
