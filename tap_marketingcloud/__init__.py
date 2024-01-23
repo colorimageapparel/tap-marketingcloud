@@ -49,7 +49,7 @@ AVAILABLE_STREAM_ACCESSORS = [
     CampaignAssetDataAccessObject,
     InteractionsDataAccessObject,
     LinkSendDataAccessObject,
-    LinkDataAccessObject,
+    # LinkDataAccessObject,
 ]
 
 # run discover mode
@@ -94,6 +94,9 @@ def do_sync(args):
 
     subscriber_selected = False
     subscriber_catalog = None
+    send_link_catalog = None
+    send_selected = False
+    send_link_selected = False
     list_subscriber_selected = False
 
     for stream_catalog in catalog.get('streams'):
@@ -120,8 +123,18 @@ def do_sync(args):
                         "'list_subscriber'")
             continue
 
+        if LinkSendDataAccessObject.matches_catalog(stream_catalog):
+            send_link_selected = True
+            send_link_catalog = stream_catalog
+            LOGGER.info("'send_link' selected, will replicate via "
+                        "'send'")
+            continue
+
         if ListSubscriberDataAccessObject.matches_catalog(stream_catalog):
             list_subscriber_selected = True
+
+        if SendDataAccessObject.matches_catalog(stream_catalog):
+            send_selected = True
 
         for available_stream_accessor in AVAILABLE_STREAM_ACCESSORS:
             if available_stream_accessor.matches_catalog(stream_catalog):
@@ -131,7 +144,13 @@ def do_sync(args):
                 break
 
     # do not replicate 'subscriber' stream without selecting 'list_subscriber' stream
-    if subscriber_selected and not list_subscriber_selected:
+    if subscriber_selected and not send_link_selected:
+        LOGGER.fatal('Cannot replicate `send_link` without '
+                     '`send`. Please select `send` '
+                     'and try again.')
+        sys.exit(1)
+
+    if send_selected and not list_subscriber_selected:
         LOGGER.fatal('Cannot replicate `subscriber` without '
                      '`list_subscriber`. Please select `list_subscriber` '
                      'and try again.')
@@ -142,6 +161,10 @@ def do_sync(args):
            subscriber_selected:
             stream_accessor.replicate_subscriber = True
             stream_accessor.subscriber_catalog = subscriber_catalog
+
+        if isinstance(stream_accessor, SendDataAccessObject) and \
+           send_link_selected:
+            stream_accessor.send_link_catalog = send_link_catalog
 
         try:
             stream_accessor.state = state

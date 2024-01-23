@@ -27,9 +27,25 @@
             "type": ["null", "integer"],
             "description": "Contains identifier for a specific send."
         },
-        "Link": {
+        "URL": {
             "type": ["null", "string"],
-            "description": "Stores the sent link in the send."
+            "description": "Indicates URL included in an event or configuration."
+        },
+        "TotalClicks": {
+            "type": ["null", "string"],
+            "description": "Indicates total number of clicks on link in message."
+        },
+        "UniqueClicks": {
+            "type": ["null", "string"],
+            "description": "Indicates number of unique clicks on message."
+        },
+        "LastClicked": {
+            "type": ["null", "string"],
+            "description": "Indicates last time a link included in a message was clicked."
+        },
+        "Alias": {
+            "type": ["null", "string"],
+            "description": "Name of link contained in message."
         }
     }
 }
