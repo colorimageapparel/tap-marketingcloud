@@ -1,0 +1,40 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": ["null", "string"]
+        },
+        "campaignId": {
+            "type": ["null", "string"]
+        },
+        "createdDate": {
+            "type": ["null", "string"],
+            "format": "datetime"
+        },
+        "modifiedDate": {
+            "type": ["null", "string"],
+            "format": "datetime"
+        },
+        "name": {
+            "type": ["null", "string"]
+        },
+        "itemID": {
+            "type": ["null", "number"]
+        },
+        "objectID": {
+            "type": ["null", "string"]
+        },
+        "status": {
+            "type": ["object","null"]
+        },
+        "category": {
+            "type": ["object","null"]
+        },
+        "legacyData": {
+            "type": ["object","null"]
+        },
+        "assetType": {
+            "type": ["object","null"]
+        }
+    }
+}

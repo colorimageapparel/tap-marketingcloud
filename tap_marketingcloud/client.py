@@ -157,8 +157,6 @@ def request_from_cursor(name, cursor, batch_size):
     """
     response = cursor.get()
 
-    # LOGGER.info("Response: %s", response.__dict__)
-
     for item in _get_response_items(response, name):
         yield item
 
@@ -168,7 +166,7 @@ def request_from_cursor(name, cursor, batch_size):
 
         # cursor.getMoreResults()
 
-        if isinstance(cursor, FuelSDK.ET_Campaign):
+        if isinstance(cursor, FuelSDK.ET_Campaign) or isinstance(cursor, FuelSDK.ET_Asset):
             # use 'getMoreResults' for campaigns as it does not use
             # batch_size, rather it uses $page and $pageSize and REST Call
             response = cursor.getMoreResults()

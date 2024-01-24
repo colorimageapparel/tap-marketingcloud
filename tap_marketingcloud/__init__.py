@@ -22,7 +22,7 @@ from tap_marketingcloud.endpoints.triggered_send import TriggeredSendDataAccessO
 from tap_marketingcloud.endpoints.campaign_assets import CampaignAssetDataAccessObject
 from tap_marketingcloud.endpoints.interactions import InteractionsDataAccessObject
 from tap_marketingcloud.endpoints.link_sends import LinkSendDataAccessObject
-from tap_marketingcloud.endpoints.links import LinkDataAccessObject
+from tap_marketingcloud.endpoints.assets import AssetDataAccessObject
 
 
 LOGGER = singer.get_logger()  # noqa
@@ -49,7 +49,7 @@ AVAILABLE_STREAM_ACCESSORS = [
     CampaignAssetDataAccessObject,
     InteractionsDataAccessObject,
     LinkSendDataAccessObject,
-    # LinkDataAccessObject,
+    AssetDataAccessObject
 ]
 
 # run discover mode
