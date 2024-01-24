@@ -144,13 +144,13 @@ def do_sync(args):
                 break
 
     # do not replicate 'subscriber' stream without selecting 'list_subscriber' stream
-    if subscriber_selected and not send_link_selected:
+    if send_selected and not send_link_selected:
         LOGGER.fatal('Cannot replicate `send_link` without '
                      '`send`. Please select `send` '
                      'and try again.')
         sys.exit(1)
 
-    if send_selected and not list_subscriber_selected:
+    if subscriber_selected and not list_subscriber_selected:
         LOGGER.fatal('Cannot replicate `subscriber` without '
                      '`list_subscriber`. Please select `list_subscriber` '
                      'and try again.')
