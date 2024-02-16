@@ -68,20 +68,21 @@ class SendDataAccessObject(DataAccessObject):
         linksend_dao.write_schema()
 
         for send_batch in partition_all(stream, batch_size):
-                for send in send_batch:
-                    send = self.filter_keys_and_parse(
-                        send)
+            for send in send_batch:
+                send = self.filter_keys_and_parse(
+                    send)
 
-                    self.state = incorporate(self.state,
-                                     table,
-                                     'ModifiedDate',
-                                     send.get('ModifiedDate'))
+                self.state = incorporate(self.state,
+                                    table,
+                                    'ModifiedDate',
+                                    send.get('ModifiedDate'))
 
-                    self.write_records_with_transform(send, catalog_copy, table)
-                            
-                send_ids = list(map(
-                    _get_send_id, send_batch))
+                self.write_records_with_transform(send, catalog_copy, table)
 
-                linksend_dao.pull_link_send_batch(send_ids)
+            send_ids = list(map(
+                _get_send_id, send_batch))
 
-        save_state(self.state)
+            linksend_dao.pull_link_send_batch(send_ids)
+
+            # Send state message to target
+            save_state(self.state)
