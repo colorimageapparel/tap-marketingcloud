@@ -18,6 +18,9 @@
         "name": {
             "type": ["null", "string"]
         },
+        "views": {
+            "type": ["object", "null"]
+        },
         "itemID": {
             "type": ["null", "number"]
         },
