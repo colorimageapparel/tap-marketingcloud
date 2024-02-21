@@ -15,7 +15,7 @@ LOGGER = singer.get_logger()
 class EventDataAccessObject(DataAccessObject):
 
     TABLE = 'event'
-    KEY_PROPERTIES = ['SendID', 'EventType', 'SubscriberKey', 'EventDate', 'ID']
+    KEY_PROPERTIES = ['SendID', 'EventType', 'SubscriberKey', 'EventDate']
     REPLICATION_METHOD = 'INCREMENTAL'
     REPLICATION_KEYS = ['EventDate']
 
