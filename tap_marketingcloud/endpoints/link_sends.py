@@ -11,7 +11,7 @@ LOGGER = singer.get_logger()
 class LinkSendDataAccessObject(DataAccessObject):
 
     TABLE = 'link_send'
-    KEY_PROPERTIES = ['LinkID', 'SendID']
+    KEY_PROPERTIES = ['ID']
     REPLICATION_METHOD = 'INCREMENTAL'
     REPLICATION_KEYS = ['ModifiedDate']
 
