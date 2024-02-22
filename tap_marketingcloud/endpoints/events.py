@@ -15,9 +15,16 @@ LOGGER = singer.get_logger()
 class EventDataAccessObject(DataAccessObject):
 
     TABLE = 'event'
-    KEY_PROPERTIES = ['SendID', 'EventType', 'SubscriberKey', 'EventDate']
+    KEY_PROPERTIES = ['SendID', 'EventType', 'SubscriberKey', 'EventDate', 'ID']
     REPLICATION_METHOD = 'INCREMENTAL'
     REPLICATION_KEYS = ['EventDate']
+
+    def parse_object(self, obj):
+        to_return = obj.copy()
+
+        to_return['ID'] = to_return.get('ID', '')
+
+        return super().parse_object(to_return)
 
     @exacttarget_error_handling
     def sync_data(self):
