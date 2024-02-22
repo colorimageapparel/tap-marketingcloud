@@ -64,7 +64,7 @@ class SendDataAccessObject(DataAccessObject):
                          batch_size=self.batch_size)
 
         catalog_copy = copy.deepcopy(self.catalog)
-        batch_size = 100
+        batch_size = 50
         linksend_dao.write_schema()
 
         for send_batch in partition_all(stream, batch_size):
