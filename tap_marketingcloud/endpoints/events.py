@@ -22,7 +22,7 @@ class EventDataAccessObject(DataAccessObject):
     def parse_object(self, obj):
         to_return = obj.copy()
 
-        to_return['ID'] = to_return.get('ID', '')
+        to_return['ID'] = to_return.get('ID', 'N/A')
 
         return super().parse_object(to_return)
 
