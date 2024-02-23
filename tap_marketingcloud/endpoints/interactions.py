@@ -18,7 +18,7 @@ class InteractionsDataAccessObject(DataAccessObject):
         cursor = request('Interactions',
                          FuelSDK.ET_Interactions,
                          self.auth_stub,
-                         props={"$pageSize": self.batch_size, "$page": 1, "page": 1, "extras": "activities"})
+                         props={"$pageSize": self.batch_size, "$page": 1, "page": 1, "extras": "activities", "mostRecentVersionOnly": "false"})
 
         catalog_copy = copy.deepcopy(self.catalog)
 
