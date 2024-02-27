@@ -125,7 +125,7 @@ class ListSubscriberDataAccessObject(DataAccessObject):
                     # pass the list of 'subscriber_keys' to fetch subscriber details
                     subscriber_dao.pull_subscribers_batch(subscriber_keys)
 
-            save_state(self.state)
+                save_state(self.state)
 
             start = end
             end = increment_date(start, unit)
