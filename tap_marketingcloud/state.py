@@ -21,7 +21,7 @@ STATE_SCHEMA = Schema({
 
 # get the start date / bookmark date for the stream
 # 'config': to return start date if no bookmark is found
-def get_last_record_value_for_table(state, table, config):
+def get_last_record_value_for_table(state, table, config, delay_in_day=1):
     raw = state.get('bookmarks', {}) \
                .get(table, {}) \
                .get('last_record')
@@ -31,7 +31,7 @@ def get_last_record_value_for_table(state, table, config):
         return config['start_date']
 
     date_obj = datetime.datetime.strptime(raw, DATE_FORMAT)
-    date_obj = date_obj - datetime.timedelta(days=1)
+    date_obj = date_obj - datetime.timedelta(days=delay_in_day)
 
     return date_obj.strftime(DATE_FORMAT)
 

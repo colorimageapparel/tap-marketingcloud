@@ -77,7 +77,7 @@ class ListSubscriberDataAccessObject(DataAccessObject):
             self.subscriber_catalog)
 
         # pass config to return start date if not bookmark is found
-        start = get_last_record_value_for_table(self.state, table, self.config)
+        start = get_last_record_value_for_table(self.state, table, self.config, delay_in_day=4)
         end_date = get_end_date(self.config)
 
         pagination_unit = self.config.get(
