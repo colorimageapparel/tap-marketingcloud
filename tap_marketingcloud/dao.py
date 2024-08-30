@@ -59,11 +59,11 @@ def exacttarget_error_handling(fnc):
     @backoff.on_exception(backoff.expo,
                           urllib.error.URLError,    # backoff 'timeout' error for SOAP API
                           giveup=is_timeout_error,
-                          max_tries=5,
+                          max_tries=8,
                           factor=2)
     @backoff.on_exception(backoff.expo,
                           (socket.timeout, ConnectionError, requests.Timeout),
-                          max_tries=5,
+                          max_tries=8,
                           factor=2)
     @functools.wraps(fnc)
     def wrapper(*args, **kwargs):
