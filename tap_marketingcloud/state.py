@@ -47,13 +47,13 @@ def get_end_date(config: dict):
 
 
 # updated the state file with the provided value
-def incorporate(state, table, field, value):
+def incorporate(state, table, field, value, delay_in_day=0):
     if value is None:
         return state
 
     new_state = state.copy()
 
-    parsed = parse(value).strftime("%Y-%m-%dT%H:%M:%SZ")
+    parsed = (parse(value) + datetime.timedelta(days=delay_in_day)).strftime("%Y-%m-%dT%H:%M:%SZ")
 
     if 'bookmarks' not in new_state:
         new_state['bookmarks'] = {}

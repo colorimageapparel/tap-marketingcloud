@@ -86,7 +86,7 @@ class EventDataAccessObject(DataAccessObject):
 
                     self.write_records_with_transform(event, catalog_copy, table)
 
-                self.state = incorporate(self.state, event_name, 'EventDate', start)
+                self.state = incorporate(self.state, event_name, 'EventDate', start, delay_in_day=1)
 
                 save_state(self.state)
 
